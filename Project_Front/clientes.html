@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Clientes</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+</head>
+<body>
+    <div class="container">
+        <button onclick="window.location.href='index.html'" class="btn btn-secondary">
+            Volver
+        </button>
+        <button id="btnCrear" class="btn btn-primary">Crear Cliente</button>
+        <table id="tablaClientes">
+            <thead>
+                <tr>
+                    <th class="visually-hidden">ID</th>
+                    <th>Nombre</th>
+                    <th>Cédula</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Estatura</th>
+                    <th>Edad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="modalCliente" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Cliente</h5>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="formCliente">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input id="nombre" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cedula">Cédula:</label>
+                        <input id="cedula" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input id="telefono" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo electrónico:</label>
+                        <input id="correo" type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="estatura">Estatura (metros):</label>
+                        <input id="estatura" type="number" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edad">Edad:</label>
+                        <input id="edad" type="number" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close-btn">Cerrar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/code.js"></script>
+</body>
+</html>

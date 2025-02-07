@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema de Gestión</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .module-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .module-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .module-description {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .btn-logout {
+            padding: 8px 16px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-logout:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>Sistema de Gestión</h1>
+            <div class="user-info">
+                <span id="userName">Usuario</span>
+                <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <main class="modules-grid">
+            <div class="module-card" onclick="navigateTo('clientes.html')">
+                <div class="module-icon">👥</div>
+                <h2 class="module-title">Gestión de Clientes</h2>
+                <p class="module-description">Administra la información de tus clientes</p>
+            </div>
+
+            <div class="module-card" onclick="navigateTo('usuarios.html')">
+                <div class="module-icon">👤</div>
+                <h2 class="module-title">Gestión de Usuarios</h2>
+                <p class="module-description">Administra los usuarios del sistema</p>
+            </div>
+
+            <div class="module-card" onclick="navigateTo('store.html')">
+                <div class="module-icon">🛍️</div>
+                <h2 class="module-title">Tienda Online</h2>
+                <p class="module-description">Gestiona productos y ventas</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Verificar autenticación al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!localStorage.getItem('token')) {
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Aquí podrías hacer una petición al backend para obtener el nombre del usuario
+            // Por ahora usaremos un valor del localStorage si existe
+            const userName = localStorage.getItem('userName') || 'Usuario';
+            document.getElementById('userName').textContent = userName;
+        });
+
+        function navigateTo(page) {
+            // Verificar autenticación antes de navegar
+            if (!localStorage.getItem('token')) {
+                window.location.href = 'login.html';
+                return;
+            }
+            window.location.href = page;
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('userName');
+            window.location.href = 'login.html';
+        }
+    </script>
+    
+</body>
+</html>

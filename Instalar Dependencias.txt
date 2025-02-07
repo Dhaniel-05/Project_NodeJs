@@ -1,0 +1,7 @@
+npm init 
+npm init -y
+npm install bcrypt cors express jsonwebtoken mysql mysql2 dotenv nodemon multer 
+
+PS C:\Users\dhany\Desktop\Project_NodeJs\Project_Backend> npm start
+
+PS C:\Users\dhany\Desktop\Project_NodeJs\Project_Backend> npx nodemon server.js

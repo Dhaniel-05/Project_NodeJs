@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios</title>
+    <link rel="stylesheet" href="assets/css/usuarios.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-actions">
+            <button onclick="window.location.href='index.html'" class="btn btn-secondary">
+                Volver al Dashboard
+            </button>
+            <button id="btnCrear" class="btn btn-primary">Crear Usuario</button>
+            <button id="btnLogout" class="btn btn-danger">Cerrar Sesión</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="visually-hidden">ID</th>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="modalUsuario" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Usuario</h5>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input id="nombre" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario">Usuario:</label>
+                        <input id="usuario" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input id="email" type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña:</label>
+                        <input id="password" type="password">
+                        <small>*Dejar en blanco para mantener la contraseña actual al editar</small>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close-btn">Cerrar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/usuarios.js"></script>
+</body>
+</html>

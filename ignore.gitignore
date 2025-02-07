@@ -1,0 +1,65 @@
+# Ignorar node_modules en ambas carpetas
+Project_Backend/node_modules/
+Project_Front/node_modules/
+
+# Ignorar otros archivos comunes
+.DS_Store
+.env
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables
+.env
+.env.test
+.env.production
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+/log
+/logs
+*.log
+debug.log
+*.out
+*.pid
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Coverage files
+/coverage
+.nyc_output
+
+# Build files
+/build
+/dist
+/out
+/bundle.js
+/public/build
+
+# Miscellaneous
+tmp/
+temp/
+.cache
